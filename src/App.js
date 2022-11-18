@@ -1,24 +1,22 @@
 import React from "react";
+import Home from "./components/pages/home/Home";
 import './categories.styles.scss'
-import CategoryItem from "./components/category-item/CategoryItem";
+import Shop from "./components/pages/home/Shop";
+import {Routes, Route} from 'react-router-dom'
+import Navigation from "./components/pages/navigation/Navigation";
+
 
 function App() {
-  const categories = [
-    {id: 'cat01', title: 'Mindfulness cards', imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHF-ardsc9iKn8aysUpR-q5Dz-f8A5WM6DQl3KgFWIZD7IlnrrOxY4l7XzardhCj8cCDw&usqp=CAU"},
-    {id: 'cat02', title: 'Eventful cards', imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHF-ardsc9iKn8aysUpR-q5Dz-f8A5WM6DQl3KgFWIZD7IlnrrOxY4l7XzardhCj8cCDw&usqp=CAU"},
-    {id: 'cat03', title: 'Make your own', imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHF-ardsc9iKn8aysUpR-q5Dz-f8A5WM6DQl3KgFWIZD7IlnrrOxY4l7XzardhCj8cCDw&usqp=CAU"},
-    {id: 'cat04', title: 'Seeding Guide', imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHF-ardsc9iKn8aysUpR-q5Dz-f8A5WM6DQl3KgFWIZD7IlnrrOxY4l7XzardhCj8cCDw&usqp=CAU"},
-    {id: 'cat05', title: 'Postcard', imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHF-ardsc9iKn8aysUpR-q5Dz-f8A5WM6DQl3KgFWIZD7IlnrrOxY4l7XzardhCj8cCDw&usqp=CAU"},
-  ]
-
+ 
   return (
-    <div className="categories-container">
-     {categories.map((category) => (
-      <CategoryItem key={category.id} category={category}/>
-     )
-      )}
-    </div>
+    <Routes>
+      <Route path='/' element={<Navigation/>}>
+        <Route index element={<Home/>} />
+        <Route path='shop' element={<Shop/>} />
+      </Route>
+    </Routes>
   );
 }
 
 export default App;
+
